@@ -1,2 +1,5 @@
-info.txt
-build
+/info.txt
+/build
+*.iml
+*.ipr
+*.iws
