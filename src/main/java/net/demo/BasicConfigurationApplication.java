@@ -23,7 +23,8 @@ public class BasicConfigurationApplication {
 			out.println(beanName);
 		}
 
-		BasicConfigurationApplication app = new BasicConfigurationApplication();
+		BasicConfigurationApplication app = (BasicConfigurationApplication) appCtx
+				.getBean("basicConfigurationApplication");
 		app.printFields();
 	}
 
@@ -42,8 +43,8 @@ public class BasicConfigurationApplication {
 
 	private SimplePojo simplePojo = new SimplePojo("created by calling custom constructor");
 
-	//@Autowired
-	//private SimplePojo createdByPrototypeFactory;
+	// @Autowired
+	// private SimplePojo createdByPrototypeFactory;
 
 	@Autowired
 	private SimplePojo createdByStaticFactory;
@@ -51,7 +52,7 @@ public class BasicConfigurationApplication {
 	public void printFields() {
 		out.println("--- autowired fields ---");
 		out.println(namedInAnnotation);
-		//out.println(createdByPrototypeFactory);
+		// out.println(createdByPrototypeFactory);
 		out.println(createdByStaticFactory);
 		out.println(simplePojo);
 		out.println("------");
