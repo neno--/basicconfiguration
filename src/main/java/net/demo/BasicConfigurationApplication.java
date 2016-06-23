@@ -1,9 +1,11 @@
 package net.demo;
 
+import net.demo.pojo.ConfigPojo;
 import net.demo.pojo.SimplePojo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -14,6 +16,7 @@ import static java.lang.System.out;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
+@EnableConfigurationProperties
 public class BasicConfigurationApplication {
 
 	public static void main(String[] args) {
@@ -43,6 +46,9 @@ public class BasicConfigurationApplication {
 
 	private SimplePojo simplePojo = new SimplePojo("created by calling custom constructor");
 
+	@Autowired
+	ConfigPojo configPojo;
+
 	// @Autowired
 	// private SimplePojo createdByPrototypeFactory;
 
@@ -55,6 +61,7 @@ public class BasicConfigurationApplication {
 		// out.println(createdByPrototypeFactory);
 		out.println(createdByStaticFactory);
 		out.println(simplePojo);
+		out.println(configPojo);
 		out.println("------");
 	}
 }
