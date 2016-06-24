@@ -2,6 +2,7 @@ package net.demo;
 
 import net.demo.pojo.ConfigPojo;
 import net.demo.pojo.SimplePojo;
+import net.demo.profiles.ConfigurableObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -55,6 +56,9 @@ public class BasicConfigurationApplication {
 	@Autowired
 	private SimplePojo createdByStaticFactory;
 
+	@Autowired
+	private ConfigurableObject configuration;
+
 	public void printFields() {
 		out.println("--- autowired fields ---");
 		out.println(namedInAnnotation);
@@ -62,6 +66,7 @@ public class BasicConfigurationApplication {
 		out.println(createdByStaticFactory);
 		out.println(simplePojo);
 		out.println(configPojo);
+		out.println(configuration);
 		out.println("------");
 	}
 }
